@@ -14,7 +14,7 @@ console.log(`Hello! My name is ${fullName} and I enjoy drinking ${numberOfCupsOf
 
 const userName = window.prompt("What is your name? ")
 
-if(userName == null || userName == '')
+if(userName === null || userName === '')
 {
     console.log('I can see you might be a bit shy! That is okay, it is very nice to meet you!')
 }
@@ -37,5 +37,41 @@ console.log(`But if you subtract ${firstOperand} from ${secondOperand}, you will
 console.log(`But thats not all! If you multiply ${firstOperand} with ${secondOperand}, you will get ${product}!`)
 console.log(`And last but not least, if you divide ${firstOperand} from ${secondOperand}, you will get ${quotient}.`)
 
+//Array of random numbers
 const numbers = [28153, 48673, 32390, 27935, 28305, 16962, 18316, 38829, 13784, 42546, 23106, 29533, 27903, 25044, 43238, 4098, 27262, 42426, 17556, 24883]
 
+const arrayMath = {
+    smallest: numbers[0],
+    largest: numbers[0],
+    sum: 0,
+    average: 0
+}
+
+//Finds the smallest number in the array
+for(let count = 1; count < numbers.length; count++) {
+    if(arrayMath.smallest > numbers[count])
+    {
+        arrayMath.smallest = numbers[count]
+    }
+}
+
+//Finds the largest number in the array
+for(let count = 0; count < numbers.length; count++) {
+    if(arrayMath.largest < numbers[count])
+    {
+        arrayMath.largest = numbers[count]
+    }
+}
+
+//Adds all the numbers in the array
+for(let count = 0; count < numbers.length; count++) {
+    arrayMath.sum += numbers[count]
+}
+
+//Adds all the numbers and finds the average
+arrayMath.average = arrayMath.sum / numbers.length
+
+console.log(`Heres some neat information, the smallest number in the array is ${arrayMath.smallest}`)
+console.log(`The largest number in the array is ${arrayMath.largest}`)
+console.log(`The sum of the array is ${arrayMath.sum}`)
+console.log(`and lastly, the average of the array is ${arrayMath.average}`)
