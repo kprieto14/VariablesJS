@@ -44,34 +44,54 @@ const arrayMath = {
     smallest: numbers[0],
     largest: numbers[0],
     sum: 0,
-    average: 0
+    average: 0,
+    sumOfOdd: 0,
+    evenNumbersArray: [0]
 }
 
 //Finds the smallest number in the array
-for(let count = 1; count < numbers.length; count++) {
-    if(arrayMath.smallest > numbers[count])
+for( let count = 1; count < numbers.length; count++ ) {
+    if( arrayMath.smallest > numbers[count] )
     {
         arrayMath.smallest = numbers[count]
     }
 }
 
 //Finds the largest number in the array
-for(let count = 0; count < numbers.length; count++) {
-    if(arrayMath.largest < numbers[count])
+for( let count = 0; count < numbers.length; count++ ) {
+    if( arrayMath.largest < numbers[count] )
     {
         arrayMath.largest = numbers[count]
     }
 }
 
 //Adds all the numbers in the array
-for(let count = 0; count < numbers.length; count++) {
+for( let count = 0; count < numbers.length; count++ ) {
     arrayMath.sum += numbers[count]
 }
 
 //Adds all the numbers and finds the average
 arrayMath.average = arrayMath.sum / numbers.length
 
+//Sum of all odd numbers
+for( let count = 0; count < numbers.length; count++ ) {
+    if( numbers[count] % 2 === 1 ) {
+        arrayMath.sumOfOdd += numbers[count]
+    }
+}
+
+//Adds all the even numbers into another array
+
+for( let count = 0; count < numbers.length; count++ ) {
+    if( numbers[count] % 2 === 0 ) {
+        arrayMath.evenNumbersArray.push(numbers[count])
+    }
+}
+arrayMath.evenNumbersArray.shift()
+
 console.log(`Heres some neat information, the smallest number in the array is ${arrayMath.smallest}`)
 console.log(`The largest number in the array is ${arrayMath.largest}`)
 console.log(`The sum of the array is ${arrayMath.sum}`)
 console.log(`and lastly, the average of the array is ${arrayMath.average}`)
+console.log(`Just kidding, another fact is sum of all odd numbers in the array is ${arrayMath.sumOfOdd}`)
+console.log(`Now last but not least, the total number of even numbers in the array are ${arrayMath.evenNumbersArray.length} numbers.`)
